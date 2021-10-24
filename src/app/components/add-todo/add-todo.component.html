@@ -1,0 +1,31 @@
+<mat-toolbar color="accent">
+    <form 
+    [formGroup]="addTodoFormGroup"
+    (submit)="onSubmit()"
+    >
+        <mat-form-field>
+            <mat-label>Title:</mat-label>
+            <input 
+                matInput
+                type="text"
+                placeholder="Some task"
+                formControlName="title"
+            >
+            <mat-hint
+                *ngIf="addTodoFormGroup.get('title')?.
+                getError('required')
+                && this.addTodoFormGroup.get('title')?.dirty"
+                style="color: red"    
+            >
+                No value
+            </mat-hint>
+        </mat-form-field>
+        <span class="example-spacer"></span>
+        <button
+            mat-icon-button
+            type="submit"
+        >
+            <mat-icon>add_task</mat-icon>
+            </button>
+    </form>
+</mat-toolbar>
